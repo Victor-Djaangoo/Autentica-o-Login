@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <ContainerRuntimeIdentifier>win-x64</ContainerRuntimeIdentifier>
+    <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-1809</ContainerBaseImage>
+    <EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>
+    <UserSecretsId>d1bf2e71-cd78-4d6c-8979-120d659ccc49</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContainerEnvironmentVariable Include="ASPNETCORE_HTTPS_PORTS">
+      <Value>8081</Value>
+    </ContainerEnvironmentVariable>
+  </ItemGroup>
+
+</Project>
